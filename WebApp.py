@@ -7,7 +7,7 @@ with open(f'model/Cyberbullyingdetection_sv.pkl', 'rb') as f:
     model = pickle.load(f)
 
 # Initialise the Flask app
-app = flask.Flask(__name__, template_folder='templates')
+app = flask.Flask(__name__, template_folder='template')
 
 # Set up the main route
 @app.route('/', methods=['GET', 'POST'])
@@ -21,7 +21,7 @@ def main():
         string = flask.request.form['string']
 
         # Make DataFrame for model
-        input_variables = pd.DataFrame([[temperature]],
+        input_variables = pd.DataFrame([[string]],
                                        columns=['string'],
                                        dtype=String,
                                        index=['input'])
