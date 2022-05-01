@@ -23,7 +23,7 @@ def main():
         # Make DataFrame for model
         input_variables = pd.DataFrame([[string]],
                                        columns=['string'],
-                                       dtype=String,
+                                       dtype=string,
                                        index=['input'])
 
         # Get the model's prediction
@@ -31,10 +31,7 @@ def main():
     
         # Render the form again, but add in the prediction and remind user
         # of the values they input before
-        return flask.render_template('main.html',
-                                     original_input={'String':string}
-                                     result=prediction,
-                                     )
+        return flask.render_template('main.html',original_input={'String':string},result=prediction)
 
 if __name__ == '__main__':
     app.run()
