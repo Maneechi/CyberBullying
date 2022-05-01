@@ -22,7 +22,9 @@ def main():
     if flask.request.method == 'POST':
         # Extract the input
         string = flask.request.form['string']
-	result_pred = model.predict(loaded_vec.transform([string]))
+	string = text_process(string)
+	token = loaded_vec.transform(pd.Series([string]))
+	result_pred = model.predict(token)
 	return render_template('main.html',prediction = result_pred)
 
 if __name__ == '__main__':
