@@ -24,7 +24,7 @@ def main():
         string = flask.request.form['string']
 	string = string.enocode('TIS-620')
 	string = text_process(string)
-	token = loaded_vec.transform([string])
+	token = loaded_vec.transform(pd.Series([string]))
 	result_pred = model.predict(token)
 	result_pred = str(result_pred)
 	return render_template('main.html',prediction = result_pred)
