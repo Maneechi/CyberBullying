@@ -25,7 +25,7 @@ def main():
 	string = text_process(string)
 	token = loaded_vec.transform(pd.Series([string]))
 	result_pred = model.predict(token)
-	return render_template('main.html',prediction = result_pred)
+	return render_template('main.html',prediction = result_pred[0])
 
 if __name__ == '__main__':
     app.run()
