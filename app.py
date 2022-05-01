@@ -22,8 +22,8 @@ def main():
     if flask.request.method == 'POST':
         # Extract the input
         string = flask.request.form['string']
-		result_pred = model.predict(loaded_vec.transform([string]))
-		return render_template('main.html',prediction = my_prediction)
+	result_pred = model.predict(loaded_vec.transform([string]))
+	return render_template('main.html',prediction = my_prediction)
 
 if __name__ == '__main__':
     app.run()
