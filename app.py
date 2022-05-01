@@ -22,6 +22,7 @@ def main():
     if flask.request.method == 'POST':
         # Extract the input
         string = flask.request.form['string']
+	string = string.enocode('TIS-620')
 	string = text_process(string)
 	token = loaded_vec.transform([string])
 	result_pred = model.predict(token)
