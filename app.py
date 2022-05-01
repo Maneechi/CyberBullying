@@ -23,7 +23,7 @@ def main():
         # Extract the input
         string = flask.request.form['string']
 	result_pred = model.predict(loaded_vec.transform([string]))
-	return render_template('main.html',prediction = my_prediction)
+	return render_template('main.html',prediction = result_pred)
 
 if __name__ == '__main__':
     app.run()
