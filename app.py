@@ -32,7 +32,7 @@ def main():
         # Render the form again, but add in the prediction and remind user
         # of the values they input before
         return flask.render_template('main.html',
-                                     original_input={'String':string},
+                                     original_input={'string':string},
                                      result=prediction,
                                     )
 
