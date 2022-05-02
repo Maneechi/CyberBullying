@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 
 # Use pickle to load in the pre-trained model
-with open(f'model/Cyberbullyingdetection_sv.pkl', 'rb') as f:
+with open(f'model/model_sv.pkl', 'rb') as f:
     model = pickle.load(f)
     
 with open(f'model/cvec.pkl', 'rb') as i:
@@ -22,8 +22,8 @@ def main():
     if flask.request.method == 'POST':
         # Extract the input
         string = flask.request.form['string']
-	string = string.deocode(encoding='utf-8')
-	string = text_process(string)
+	#string = string.deocode(encoding='utf-8')
+	#string = text_process(string)
 	token = loaded_vec.transform(pd.Series([string]))
 	result_pred = model.predict(token)
 	result_pred = str(result_pred)
